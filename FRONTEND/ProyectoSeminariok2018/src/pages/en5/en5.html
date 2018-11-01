@@ -1,0 +1,108 @@
+<!--
+  Generated template for the En5Page page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary" >
+      <button ion-button menuToggle>
+          <ion-icon name="happy"></ion-icon>
+        </button>
+    <ion-title>Niños(as)< 5 años</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding> 
+  <ion-list ion-row> 
+<div ion-col col-4  >
+    <img width="120" height="90" src="/assets/imgs/logo-nuevo-pastoral.jpg">
+</div>
+<div ion-col col-7 >
+  <h1>Pastoral Social Caritas</h1>
+  <h5>Proyecto: "Salud Comunitaria"</h5>
+</div>
+</ion-list>
+<br>
+<form ion-grid fixed>
+  <ion-list ion-row>
+  <ion-item ion-col col-12 col-sm-4>
+  <label class = "item item-input item-select">
+    <div class = "input-label">Parroquia</div>    
+    <select>
+       <option>San Francisco</option>
+       <option selected>San Cristobal</option>
+       <option>Santa Maria Chiquimula</option>
+    </select>
+ </label>
+</ion-item>
+
+<ion-item ion-col col-12 col-sm-4>
+  <ion-label floating>Peso al nacer</ion-label>
+   <ion-input type="text" name="Peso1" clearImput="true" requiered ></ion-input>
+</ion-item>
+
+<ion-item ion-col col-12 col-sm-4>
+  <ion-label floating>Peso Actual</ion-label>
+   <ion-input type="text" name="Peso2" clearImput="true" requiered ></ion-input>
+</ion-item>
+
+  <ion-item ion-col col-12 col-sm-4>
+    <ion-label floating>Nombre</ion-label>
+     <ion-input type="text" name="Nombre" clearImput="true" requiered ></ion-input>
+  </ion-item>
+
+  <ion-item ion-col col-12 col-sm-4>
+    <ion-label floating>Apellidos</ion-label>
+     <ion-input type="text" name="Apellidos" clearImput="true" requiered ></ion-input>
+  </ion-item>
+
+<ion-item ion-col col-12 col-sm-4>
+<label class = "item item-input item-select">
+   <div class = "input-label">Género</div>    
+     <select>
+       <option>Masculino</option>
+       <option selected>Femenino</option>
+    </select>
+</label>
+</ion-item>
+
+<ion-item ion-col col-12 col-sm-4>
+  <ion-label floating>Fecha de Nacimiento</ion-label>
+   <ion-input type="text" name="Fecha" clearImput="true" requiered ></ion-input>
+</ion-item>
+
+<ion-item ion-col col-12 col-sm-4>
+  <ion-label floating>Nombre de la Madre</ion-label>
+   <ion-input type="text" name="Fecha" clearImput="true" requiered ></ion-input>
+</ion-item>
+
+<ion-item ion-col col-12 col-sm-4>
+  <ion-label floating>DPI de la Madre</ion-label>
+   <ion-input type="text" name="DPI" clearImput="true" requiered ></ion-input>
+</ion-item>
+
+<ion-item ion-col col-12 col-sm-4>
+  <ion-label floating>Dirección</ion-label>
+   <ion-input type="text" name="Dirección" clearImput="true" requiered ></ion-input>
+</ion-item>
+
+<ion-item ion-col col-12 col-sm-4>
+  <ion-label floating>Teléfono</ion-label>
+   <ion-input type="text" name="Teléfono" clearImput="true" requiered ></ion-input>
+</ion-item>
+<ion-item ion-col col-12 col-sm-4>
+  <ion-label floating>Fecha de Ingreso</ion-label>
+   <ion-input type="text" name="Fecha2" clearImput="true" requiered ></ion-input>
+</ion-item>
+</ion-list>
+
+<div ion-col col-10 margin text-center >
+ <button type="submit" ion-button icon-left (click)="enviar()">
+   <ion-icon name="send"></ion-icon>
+    Enviar
+</button>
+</div>
+</form>
+</ion-content>
+  
