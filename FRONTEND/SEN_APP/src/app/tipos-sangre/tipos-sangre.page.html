@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Tipos de Sangre
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/TipoSangreCU/0">
+        <ion-icon name="add-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let cr of tiposSangre">
+      <ion-icon name="apps" slot="start"></ion-icon>
+      {{cr.tc_grupo_sanguineo.grupo_sanguineo}}{{cr.tc_factor_rh.factor_rh}}{{cr.descripcion_tipo_sangre}}
+      <div class="item-note" slot="end">
+          <ion-button shape="round" color="danger" (click)="deleteTipoSangre(cr.id)"><ion-icon name="trash"></ion-icon></ion-button>
+          <ion-button shape="round" color="warning" routerLink="/TipoSangreCU/{{cr.id}}"><ion-icon name="create"></ion-icon></ion-button>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

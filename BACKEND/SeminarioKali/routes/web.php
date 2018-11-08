@@ -16,7 +16,22 @@ $router->get('/', function () use ($router) {
 });
 
 $router->group(['prefix' => 'api'], function () use ($router) {
-    $router->get('grupo-sanguineo',  ['uses' => 'GrupoSanguineoController@showAllGrupoSanguineo']);
+    
+    $router->post('madre', ['uses' => 'madreController@create']);
+    $router->get('municipios/{id}',  ['uses' => 'madreController@getMunicipios']);
+    $router->get('parroquias',  ['uses' => 'madreController@getAllParroquias']);
+    $router->get('niveles-academicos',  ['uses' => 'madreController@getAllNivelAcademico']);
+    $router->get('madres',  ['uses' => 'madreController@showAllMadre']);
+    $router->get('TiposPeso',  ['uses' => 'madreController@getAllTipoPeso']);
+    $router->get('generos',  ['uses' => 'madreController@getAllGenero']);
+    $router->post('ninio', ['uses' => 'madreController@createNinio']);
+    $router->get('ninios',  ['uses' => 'madreController@getAllNinios']);
+    $router->get('estado-persona',  ['uses' => 'madreController@getAllEstadoPersona']);
+    $router->post('nueva-evaluacion', ['uses' => 'madreController@createEvaluacion']);
+    $router->get('evaluaciones-ninio/{id}',  ['uses' => 'madreController@getEvaluacionesNinio']);
+
+    
+    /*$router->get('grupo-sanguineo',  ['uses' => 'GrupoSanguineoController@showAllGrupoSanguineo']);
   
     $router->get('grupo-sanguineo/{id}', ['uses' => 'GrupoSanguineoController@showOneGrupoSanguineo']);
   
@@ -139,6 +154,6 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->get('inventario/quitarVencidos', ['uses' => 'InventarioController@quitarSangreVencida']);
     $router->get('inventario/cantidad/{cantidad}/unidad/{idUnidad}/tipoSangre/{idTipoSangre}', ['uses' => 'InventarioController@buscarSangre']);
     $router->put('inventario/{id}', ['uses' => 'InventarioController@update']);
-    $router->delete('inventario/{id}', ['uses' => 'ContenidoCongeladorController@delete']);
+    $router->delete('inventario/{id}', ['uses' => 'ContenidoCongeladorController@delete']);*/
 
 });

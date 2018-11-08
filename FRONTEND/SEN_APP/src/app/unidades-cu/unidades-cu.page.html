@@ -1,0 +1,16 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>Crear o Actualizar</ion-title>
+      </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-item>
+      <ion-label position="floating">Nombre de Unidad</ion-label>
+      <ion-input type="text" [(ngModel)]="unidad.unidad"></ion-input>
+    </ion-item>
+    <ion-button shape="round" color="primary" expand="block" (click)="saveUnidad()">Guardar</ion-button>
+  </ion-content>

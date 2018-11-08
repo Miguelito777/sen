@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Crear o Actualizar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label position="floating">Nombre de Congelador</ion-label>
+    <ion-input type="text" [(ngModel)]="congelador.nombre"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label>Almacen</ion-label>
+      <ion-select interface="popover" placeholder="" [(ngModel)]="congelador.tc_almacen_id_almacen">
+        <ion-select-option *ngFor="let cr of almacenes" value="{{cr.id}}" >{{cr.nombre}}</ion-select-option>
+      </ion-select>
+
+  <ion-button color="primary" expand="block" (click)="saveCongelador()">Guardar</ion-button>
+</ion-content>

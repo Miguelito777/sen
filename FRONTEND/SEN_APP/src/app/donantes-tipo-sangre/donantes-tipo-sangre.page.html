@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Donantes Tipo Sangre
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-input type="number" placeholder="Edad Inicial" [(ngModel)]="edadInicial"></ion-input>
+      </ion-col>
+      <ion-col>
+        <ion-input type="number" placeholder="Edad Final" [(ngModel)]="edadFinal"></ion-input>
+      </ion-col>
+      <ion-col>
+        <ion-select interface="popover" placeholder="Género" [(ngModel)]="genero">
+          <ion-select-option value="Femenino">Femenino</ion-select-option>
+          <ion-select-option value="Masculino">Masculino</ion-select-option>
+        </ion-select>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-button color="primary" (click)="filtrar()">
+            <ion-icon name="create"></ion-icon>
+          </ion-button>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <b>Nombre</b>
+      </ion-col>
+      <ion-col>
+        <b>Teléfono</b>
+      </ion-col>
+      <ion-col>
+        <b>Correo</b>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let cr of filtroDonantes">
+      <ion-col>
+        {{cr.nombre}}
+      </ion-col>
+      <ion-col>
+        {{cr.telefonos}}
+      </ion-col>
+      <ion-col>
+        {{cr.correo}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

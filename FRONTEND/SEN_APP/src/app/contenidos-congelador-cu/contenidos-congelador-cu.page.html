@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Contenidos Congelador
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label>Almacen</ion-label>
+    <ion-select  placeholder="{{unidadCongelador.currentAlmacen}} " (ionChange)="getCongeladores()" [(ngModel)]="tc_almacen_id">
+      <ion-select-option *ngFor="let cr of almacenes" value="{{cr.id}}" >{{cr.nombre}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Congeladores Almacen</ion-label>
+    <ion-select  placeholder=" {{unidadCongelador.currentCongelador}} "  [(ngModel)]="tc_congelador_id">
+      <ion-select-option *ngFor="let cr of congeladoresAlmacen" value="{{cr.id}}" >{{cr.nombre}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Unidades</ion-label>
+    <ion-select  placeholder=" {{unidadCongelador.currentUnidad}} "  [(ngModel)]="tc_unidades_id">
+      <ion-select-option *ngFor="let cr of unidades" value="{{cr.id}}" >{{cr.unidad}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Cantidad Máxima</ion-label>
+    <ion-input [(ngModel)]="cantidadMaxima"></ion-input>
+  </ion-item>
+  <ion-button color="primary" expand="block" (click)="saveContenidoCongelador()">Guardar</ion-button>
+</ion-content>

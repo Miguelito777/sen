@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Salida Sangre
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label>Tipo de Sangre</ion-label>
+    <ion-select interface="popover" placeholder="" [(ngModel)]="tc_tipo_sangre_id_tipo_sangre"
+      (ionChange)="getUnidad()">
+      <ion-select-option *ngFor="let cr of tiposSangre" value="{{cr.id}}">{{cr.tc_grupo_sanguineo.grupo_sanguineo}}{{cr.tc_factor_rh.factor_rh}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Tipo de Salida</ion-label>
+    <ion-select interface="popover" placeholder="" [(ngModel)]="tipoSalida">
+      <ion-select-option value="2">Donacion</ion-select-option>
+      <ion-select-option value="3">Venta</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Cantidad {{unidad}}: </ion-label>
+    <ion-input [(ngModel)]="cantidad"></ion-input>
+  </ion-item>
+  <br>
+  <ion-button color="primary" expand="block" (click)="searchSangre()">Buscar Sangre</ion-button>
+  <br>
+  <ion-item>
+    <h1>Almacen: <b> {{sangreDisponible.nombre_almacen}} </b></h1><br>
+  </ion-item>
+  <ion-item>
+    <h1>Congelador: <b> {{sangreDisponible.nombre_congelador}} </b></h1><br>
+  </ion-item>
+  <ion-item>
+    <h1>Vence: <b> {{sangreDisponible.fecha_vencimiento}} </b></h1>
+  </ion-item>
+  <ion-button color="primary" expand="block" (click)="UpdateInventario()">Donar o Vender Sangre</ion-button>
+</ion-content>

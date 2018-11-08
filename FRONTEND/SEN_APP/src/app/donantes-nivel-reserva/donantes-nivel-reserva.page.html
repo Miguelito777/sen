@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+          Donantes Nivel Reserva
+        </ion-title>
+      </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-item *ngFor="let cr of existenciaSangre">
+        {{cr.grupo_sanguineo}}{{cr.factor_rh}} : {{cr.existencia}} {{cr.unidad}}
+          <!--<ion-label>Tipo de Sangre</ion-label>
+          <ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="" [(ngModel)]="tc_tipo_sangre_id_tipo_sangre"
+            (ionChange)="getUnidad()">
+            <ion-select-option *ngFor="let cr of tiposSangre" value="{{cr.id}}">{{cr.tc_grupo_sanguineo.grupo_sanguineo}}{{cr.tc_factor_rh.factor_rh}}</ion-select-option>
+          </ion-select>-->
+        </ion-item>
+</ion-content>
