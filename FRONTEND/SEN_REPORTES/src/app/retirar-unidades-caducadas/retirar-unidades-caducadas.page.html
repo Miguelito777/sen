@@ -1,0 +1,47 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+          Unidades Caducadas
+        </ion-title>
+      </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-grid>
+        <ion-row>
+          <ion-col>
+            <b>Almacen</b>
+          </ion-col>
+          <ion-col>
+            <b>Congelador</b>
+          </ion-col>
+          <ion-col>
+            <b>Sangre</b>
+          </ion-col>
+          <ion-col>
+            <b>Opción</b>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let cr of unidadesCaducadas">
+          <ion-col>
+            {{cr.nombre_almacen}}
+          </ion-col>
+          <ion-col>
+            {{cr.nombre_congelador}}
+          </ion-col>
+          <ion-col>
+            {{cr.grupo_sanguineo}}{{cr.factor_rh}}
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-button color="warning" (click)="deleteInventario(cr)">
+                <ion-icon name="create"></ion-icon>
+              </ion-button>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+</ion-content>

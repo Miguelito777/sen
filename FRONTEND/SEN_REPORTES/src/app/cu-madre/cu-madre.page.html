@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Crear o Actualizar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label position="floating">Nombre de Madre</ion-label>
+    <ion-input type="text" [(ngModel)]="madre.madre"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Dirección</ion-label>
+    <ion-input type="text" [(ngModel)]="madre.direccion"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">telefono</ion-label>
+    <ion-input type="text" [(ngModel)]="madre.telefono"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">No. de CUI</ion-label>
+    <ion-input type="text" [(ngModel)]="madre.cui"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Municipio</ion-label>
+    <ion-select interface="popover" placeholder="" [(ngModel)]="madre.id_municipio">
+      <ion-select-option *ngFor="let cr of municipios" value="{{cr.id}}">{{cr.municipio}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Parroquia</ion-label>
+    <ion-select interface="popover" placeholder="" [(ngModel)]="madre.id_parroquia">
+      <ion-select-option *ngFor="let cr of parroquias" value="{{cr.id}}">{{cr.parroquia}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Nivel Academico</ion-label>
+    <ion-select interface="popover" placeholder="" [(ngModel)]="madre.id_nivel_academico">
+      <ion-select-option *ngFor="let cr of nivelesAcademicos" value="{{cr.id}}">{{cr.nivel_academico}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-button shape="round" color="primary" expand="block" (click)="saveMadre()">Guardar</ion-button>
+</ion-content>

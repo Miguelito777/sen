@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>
+          Factor RH
+        </ion-title>
+        <ion-buttons slot="end">
+          <ion-button routerLink="/FactorRhCU/0">
+            <ion-icon name="add-circle"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item *ngFor="let cr of factoresRh">
+          <ion-icon name="apps" slot="start"></ion-icon>
+          {{cr.factor_rh}}
+          <div class="item-note" slot="end">
+              <ion-button shape="round" color="danger" (click)="deleteFactorRh(cr.id)"><ion-icon name="trash"></ion-icon></ion-button>
+              <ion-button shape="round" color="warning" routerLink="/FactorRhCU/{{cr.id}}"><ion-icon name="create"></ion-icon></ion-button>
+          </div>
+        </ion-item>
+      </ion-list>
+</ion-content>

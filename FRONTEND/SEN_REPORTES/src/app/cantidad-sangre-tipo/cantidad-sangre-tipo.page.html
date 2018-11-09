@@ -1,0 +1,37 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+          Cantidades Tipo de Sangre
+        </ion-title>
+      </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+              <b>Tipo Sangre</b>
+            </ion-col>
+            <ion-col>
+              <b>Existencia</b>
+            </ion-col>
+            <ion-col>
+              <b>Unidad</b>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngFor="let cr of existenciaSangre">
+              <ion-col>
+                  {{cr.grupo_sanguineo}}{{cr.factor_rh}}
+              </ion-col>
+              <ion-col>
+                  {{cr.existencia}}
+              </ion-col>
+              <ion-col>
+                  {{cr.unidad}}
+              </ion-col>
+            </ion-row>
+    </ion-grid>
+</ion-content>

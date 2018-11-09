@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Ingresar Sangre
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label>Donante</ion-label>
+    <ion-select placeholder="Seleccione" (ionChange)="getTipoSangredata();" [(ngModel)]="idDonante">
+      <ion-select-option *ngFor="let cr of donantes" value="{{cr.id}}" >{{cr.nombre}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Tipo Sangre</ion-label>
+    <ion-input disabled>{{grupoSanguineo.grupo_sanguineo}}{{factorRH.factor_rh}} </ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label >Fecha Vencimiento</ion-label>
+    <ion-datetime display-format="DD/MM/YYYY" [(ngModel)]="sangre.fechaVencimiento" ></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label>Cantidad {{unidad.unidad}}: </ion-label>
+    <ion-input [(ngModel)]="sangre.cantidad"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Almacen</ion-label>
+    <ion-select  placeholder="" (ionChange)="getCongeladores();" [(ngModel)]="idAlmacen">
+      <ion-select-option *ngFor="let cr of almacenes" value="{{cr.id}}" >{{cr.nombre}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Congeladores Almacen</ion-label>
+    <ion-select  placeholder=" "  [(ngModel)]="tc_congelador_id" (ionChange)="getUnidadCongelador();">
+      <ion-select-option *ngFor="let cr of congeladoresAlmacen" value="{{cr.id}}" >{{cr.nombre}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <br><br>
+  <ion-button color="primary" expand="block" (click)="ingresarSangre()">Guardar</ion-button>
+
+</ion-content>

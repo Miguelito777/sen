@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Crear o Actualizar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label>Grupo Sanguineo</ion-label>
+    <ion-select interface="popover" placeholder="" [(ngModel)]="tc_grupo_sanguineo_id_grupo_sanguineo">
+      <ion-select-option *ngFor="let cr of gruposSanguineos" value="{{cr.id}}">{{cr.grupo_sanguineo}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Factor RH</ion-label>
+    <ion-select interface="popover" placeholder="" [(ngModel)]="tc_factor_rh_id_factor_rh">
+      <ion-select-option *ngFor="let cr of factoresRh" value="{{cr.id}}">{{cr.factor_rh}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Seleccione la unidad de medida</ion-label>
+    <ion-select interface="popover" placeholder="" [(ngModel)]="tc_unidades_id_unidades">
+      <ion-select-option *ngFor="let cr of unidades" value="{{cr.id}}">{{cr.unidad}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Cantidad minima necesaria</ion-label>
+    <ion-input type="number" [(ngModel)]="tipoSangre.cantidad_minima"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Comentarios</ion-label>
+    <ion-textarea [(ngModel)]="tipoSangre.descripcion_tipo_sangre"></ion-textarea>
+  </ion-item>
+  <!--<ion-label position="floating"></ion-label>
+    <ion-input type="text" [(ngModel)]="almacen.nombre"></ion-input>
+  </ion-item>-->
+  <ion-button color="primary" expand="block" (click)="saveTipoSangre()">Guardar</ion-button>
+</ion-content>
