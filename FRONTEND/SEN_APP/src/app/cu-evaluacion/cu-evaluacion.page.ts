@@ -54,6 +54,13 @@ export class CuEvaluacionPage implements OnInit {
     this.evaluacion.detalles_evaluacion.push(estado_persona);
   }
   async saveEvaluacion(){
+    if(+this.evaluacion.peso < 50 && +this.evaluacion.talla < 100){
+      this.evaluacion.evaluacion = 'Desnutricion Aguda';
+    }else if((+this.evaluacion.peso > 50 && +this.evaluacion.peso < 150 ) && (+this.evaluacion.talla > 100 && +this.evaluacion.talla < 150)){
+      this.evaluacion.evaluacion = 'Normal';
+    }else{
+      this.evaluacion.evaluacion = 'Obeso';
+    }
     const loading = await this.loadingController.create({
       message: 'Guardando Evaluacion',
     });
