@@ -11,6 +11,7 @@ use App\TcGenero;
 use App\TtNinio;
 use App\TcEstadoPersona;
 use App\TtEvaluacion;
+use App\TcMunicipio;
 
 use Illuminate\Http\Request;
 
@@ -49,7 +50,7 @@ class MadreController extends Controller
     }
     public function getMunicipios($id)
     {
-        return response()->json(TcDepartamento::find($id)->Municipios);
+        return response()->json(TcMunicipio::all());
     }
     public function getAllParroquias()
     {
