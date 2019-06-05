@@ -465,6 +465,12 @@ export class RestApiService {
       map(this.extractData),
       catchError(this.handleError));
   }
+  getIdiomas(): Observable<any> {
+    const url = `${apiUrl}Idioma`;
+    return this.http.get(url).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
   getNivelesAcademicos(): Observable<any> {
     const url = `${apiUrl}niveles-academicos`;
     return this.http.get(url).pipe(

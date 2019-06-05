@@ -44,3 +44,4 @@ class CreateCatalogosConForaneas extends Migration
         Schema::dropIfExists('tc_usuario');
     }
 }
+

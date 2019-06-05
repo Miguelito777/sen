@@ -1,10 +1,8 @@
 <?php
-
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
-class AlterTable extends Migration
+class ModifyTableName extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +11,10 @@ class AlterTable extends Migration
      */
     public function up()
     {
-        Schema::table('tt_evaluacion', function (Blueprint $table) {
-            $table->unsignedInteger('id_ninio');
-            $table->foreign('id_ninio')->references('id')->on('tt_ninio');
+        Schema::table('tt_detalle_evaluacion', function (Blueprint $table) {
+            $table->renameColumn('id_evaluacion', 'tt_evaluacion_id');
         });
     }
-
     /**
      * Reverse the migrations.
      *

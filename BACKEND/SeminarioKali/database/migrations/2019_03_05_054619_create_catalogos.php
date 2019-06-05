@@ -78,3 +78,4 @@ class CreateCatalogos extends Migration
         Schema::dropIfExists('tc_estado_persona');
     }
 }
+

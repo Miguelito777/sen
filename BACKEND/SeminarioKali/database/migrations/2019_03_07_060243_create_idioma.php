@@ -4,8 +4,9 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ModifyTableName extends Migration
+class CreateIdioma extends Migration
 {
+
     /**
      * Run the migrations.
      *
@@ -13,8 +14,10 @@ class ModifyTableName extends Migration
      */
     public function up()
     {
-        Schema::table('tt_detalle_evaluacion', function (Blueprint $table) {
-            $table->renameColumn('id_evaluacion', 'tt_evaluacion_id');
+       Schema::create('tc_idioma', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('idioma','88')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -25,6 +28,6 @@ class ModifyTableName extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('tc_idioma');
     }
 }

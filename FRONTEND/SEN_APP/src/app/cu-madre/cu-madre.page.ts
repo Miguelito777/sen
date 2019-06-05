@@ -15,10 +15,12 @@ export class CuMadrePage implements OnInit {
     telefono:null,
     cui:null,
     id_municipio:null,
+    id_idioma:null,
     id_parroquia:null,
     id_nivel_academico:null
   };
   public municipios;
+  public idiomas;
   public parroquias;
   public nivelesAcademicos;
   constructor(
@@ -40,6 +42,7 @@ export class CuMadrePage implements OnInit {
     this.getMunicipios(2);
     this.getParroquias();
     this.getNivelesAcademicos();
+    this.getIdiomas();
   }
   async getMunicipios(id) {
     const loading = await this.loadingController.create({
@@ -55,7 +58,20 @@ export class CuMadrePage implements OnInit {
         loading.dismiss();
       });
   }
-
+  async getIdiomas() {
+    const loading = await this.loadingController.create({
+      message: 'Idiomas',
+    });
+    await loading.present();
+    await this.api.getIdiomas()
+      .subscribe(res => {
+        this.idiomas = res;
+        loading.dismiss();
+      }, err => {
+        console.log(err);
+        loading.dismiss();
+      });
+  }
   async getParroquias() {
     const loading = await this.loadingController.create({
       message: 'Parroquias',

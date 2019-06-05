@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class TtNinio extends Model
 {
     protected $table = "tt_ninio";
+    
     /**
      * The attributes that are mass assignable.
-     *
+     * 
      * @var array
      */
     protected $fillable = [

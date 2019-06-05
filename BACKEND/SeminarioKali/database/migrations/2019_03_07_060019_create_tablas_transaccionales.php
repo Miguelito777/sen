@@ -80,3 +80,4 @@ class CreateTablasTransaccionales extends Migration
         Schema::dropIfExists('tt_detalle_evaluacion');
     }
 }
+

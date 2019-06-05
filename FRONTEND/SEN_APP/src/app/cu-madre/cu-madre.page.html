@@ -35,6 +35,12 @@
     <ion-select interface="popover" placeholder="" [(ngModel)]="madre.id_parroquia">
       <ion-select-option *ngFor="let cr of parroquias" value="{{cr.id}}">{{cr.parroquia}}</ion-select-option>
     </ion-select>
+   </ion-item>
+  <ion-item>
+  <ion-label>Idioma</ion-label>
+    <ion-select interface="popover" placeholder="" [(ngModel)]="madre.id_idioma">
+      <ion-select-option *ngFor="let cr of idiomas" value="{{cr.id}}">{{cr.idioma}}</ion-select-option>
+    </ion-select>
   </ion-item>
   <ion-item>
     <ion-label>Nivel Academico</ion-label>

@@ -4,25 +4,17 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class TtEvaluacion extends Model
+class TcIdioma extends Model
 {
-    protected $table = "tt_evaluacion";
+    protected $table = "tc_idioma";
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'evaluacion',
-        'peso',
-        'talla',
-        'id_estado_persona'
-        
+        'idioma'
     ];
-    public function detailsEvaluacion()
-    {
-        return $this->hasMany('App\TtDetalleEvaluacion');
-    }
         /**
      * The attributes excluded from the model's JSON form.
      *
@@ -30,3 +22,4 @@ class TtEvaluacion extends Model
      */
     protected $hidden = [];
 }
+
