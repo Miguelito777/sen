@@ -28,9 +28,9 @@ export class CuMadrePage implements OnInit {
     public loadingController: LoadingController,
     private route: ActivatedRoute,
     public router: Router
-  ) { 
+  ) {     
     if(+this.route.snapshot.paramMap.get('id') > 0){
-      //this.getAlmacen(this.route.snapshot.paramMap.get('id'));
+      this.getMadre(this.route.snapshot.paramMap.get('id'));
     }else{
       /*this.almacen = {
         nombre:''
@@ -102,11 +102,11 @@ export class CuMadrePage implements OnInit {
   }
   async saveMadre(){
     if(+this.route.snapshot.paramMap.get('id') > 0){
-      /*const loading = await this.loadingController.create({
-        message: 'Actualizando Congelador',
+      const loading = await this.loadingController.create({
+        message: 'Actualizando Madre',
       });
       await loading.present();
-      await this.api.updateCongelador(this.route.snapshot.paramMap.get('id'),this.congelador)
+      await this.api.updateMadre(this.route.snapshot.paramMap.get('id'),this.madre)
       .subscribe(res => {
         console.log(res);
         loading.dismiss();  
@@ -114,7 +114,7 @@ export class CuMadrePage implements OnInit {
           this.router.navigate(['/Catalogos']);
         }, (err) => {
           console.log(err);
-        });*/
+        });
     }else{
       const loading = await this.loadingController.create({
         message: 'Guardando Madre',
@@ -129,5 +129,19 @@ export class CuMadrePage implements OnInit {
           console.log(err);
         });
     }
+  }
+  async getMadre(id) {
+    const loading = await this.loadingController.create({
+      message: 'loading...',
+    });
+    await loading.present();
+    await this.api.getMadre(id)
+      .subscribe(res => {
+        this.madre = res[0];
+        loading.dismiss();
+      }, err => {
+        console.log(err);
+        loading.dismiss();
+      });
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 import { RestApiService } from '../rest-api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-rd-madre',
@@ -12,6 +13,7 @@ export class RdMadrePage implements OnInit {
   constructor(
     public api: RestApiService,
     public loadingController: LoadingController,
+    public router: Router
   ) { }
 
   ngOnInit() {
@@ -27,6 +29,23 @@ export class RdMadrePage implements OnInit {
         this.madres = res;
         loading.dismiss();
       }, err => {
+        console.log(err);
+        loading.dismiss();
+      });
+  }
+  async deleteMadre(id) {
+    const loading = await this.loadingController.create({
+      message: 'Eliminando...',
+    });
+    await loading.present();
+    await this.api.deleteMadre(id)
+      .subscribe(res => {
+        console.log(res);
+        loading.dismiss();
+        this.router.navigate(['/Catalogos']);
+        //this.gruposSanguineos = res;
+      }, err => {
+        this.router.navigate(['/Catalogos']);
         console.log(err);
         loading.dismiss();
       });

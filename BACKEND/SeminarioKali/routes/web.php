@@ -17,8 +17,12 @@
 	
 	$router->group(['prefix' => 'api'], function () use ($router) {
 	    
-	    $router->post('madre', ['uses' => 'madreController@create']);
-	    $router->get('municipios/{id}',  ['uses' => 'madreController@getMunicipios']);
+		$router->post('madre', ['uses' => 'madreController@create']);
+		$router->get('madre/{id}',  ['uses' => 'madreController@showOneMadre']);
+		$router->put('madre/{id}', ['uses' => 'madreController@update']);
+		$router->delete('madre/{id}', ['uses' => 'madreController@delete']);
+
+		$router->get('municipios/{id}',  ['uses' => 'madreController@getMunicipios']);
 	    $router->get('parroquias',  ['uses' => 'madreController@getAllParroquias']);
 	    $router->get('niveles-academicos',  ['uses' => 'madreController@getAllNivelAcademico']);
 	    $router->get('madres',  ['uses' => 'madreController@showAllMadre']);
@@ -29,7 +33,7 @@
 	    $router->get('estado-persona',  ['uses' => 'madreController@getAllEstadoPersona']);
 	    $router->post('nueva-evaluacion', ['uses' => 'madreController@createEvaluacion']);
 	    $router->get('evaluaciones-ninio/{id}',  ['uses' => 'madreController@getEvaluacionesNinio']);
-        	    
+
 	    /*$router->get('grupo-sanguineo',  ['uses' => 'GrupoSanguineoController@showAllGrupoSanguineo']);
 	  
 	    $router->get('grupo-sanguineo/{id}', ['uses' => 'GrupoSanguineoController@showOneGrupoSanguineo']);

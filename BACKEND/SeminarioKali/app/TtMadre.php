@@ -21,6 +21,9 @@ class TtMadre extends Model
         'id_parroquia',
         'id_nivel_academico'
     ];
+    public function municipio(){
+        return $this->hasOne('App\TcMunicipio','id','id_municipio');
+    }
         /**
      * The attributes excluded from the model's JSON form.
      *

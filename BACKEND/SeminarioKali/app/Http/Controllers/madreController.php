@@ -25,7 +25,8 @@ class MadreController extends Controller
 
     public function showOneMadre($id)
     {
-        return response()->json(TtMadre::find($id));
+        $madre = TtMadre::with('municipio')->where('id','=',$id)->get();
+        return response()->json($madre);
     }
 
     public function create(Request $request)

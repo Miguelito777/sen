@@ -491,6 +491,26 @@ export class RestApiService {
       catchError(this.handleError));
   }
 
+  getMadre(id): Observable<any> {
+    const url = `${apiUrl}madre/${id}`;
+    return this.http.get(url).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+  updateMadre(id: string, data): Observable<any> {
+    const url = `${apiUrl}madre/${id}`;
+    return this.http.put(url, data, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+  deleteMadre(id: string): Observable<{}> {
+    const url = `${apiUrl}madre/${id}`;
+    return this.http.delete(url, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
   getTipoPeso(): Observable<any> {
     const url = `${apiUrl}TiposPeso`;
     return this.http.get(url).pipe(

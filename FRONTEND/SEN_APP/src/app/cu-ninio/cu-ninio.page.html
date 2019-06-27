@@ -20,18 +20,15 @@
       </ion-select>
     </ion-item>
     <ion-item>
-      <ion-label position="floating">Peso Nacimiento</ion-label>
-      <ion-input type="text" ngShow="ninio.peso_nacimiento"></ion-input>
+      <ion-label position="floating">Peso de nacimiento en libras</ion-label>
+      <ion-input type="numer" ngShow="ninio.peso_nacimiento"></ion-input>
     </ion-item>
+    <ion-item>
+      <p>Libras:</p>
+      </ion-item>
   <ion-item>
     <ion-label position="floating">Fecha Nacimiento</ion-label>
     <ion-datetime display-format="DD/MM/YYYY" [(ngModel)]="ninio.fechaNacimiento" value="12/10/1993"></ion-datetime>
-  </ion-item>
-  <ion-item>
-      <ion-label>Tipo Peso</ion-label>
-      <ion-select interface="popover" placeholder="" [(ngModel)]="ninio.id_tipo_peso">
-        <ion-select-option *ngFor="let cr of tiposPeso" value="{{cr.id}}" >{{cr.tipo_peso}}</ion-select-option>
-      </ion-select>
   </ion-item>
   <ion-item>
       <ion-label>Sexo</ion-label>
