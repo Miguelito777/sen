@@ -25,7 +25,7 @@ class MadreController extends Controller
 
     public function showOneMadre($id)
     {
-        $madre = TtMadre::with('municipio')->where('id','=',$id)->get();
+        $madre = TtMadre::with('municipio','parroquia','nivel_academico')->where('id','=',$id)->get();
         return response()->json($madre);
     }
 

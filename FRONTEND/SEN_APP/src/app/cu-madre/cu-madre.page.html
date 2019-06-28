@@ -24,15 +24,27 @@
     <ion-label position="floating">No. de CUI</ion-label>
     <ion-input type="text" [(ngModel)]="madre.cui"></ion-input>
   </ion-item>
-  <ion-item>
+  <ion-item *ngIf="new">
     <ion-label>Municipio</ion-label>
-    <ion-select interface="popover" placeholder="" [(ngModel)]="madre.id_municipio">
+    <ion-select interface="popover" placeholder="seleccione" [(ngModel)]="madre.id_municipio">
       <ion-select-option *ngFor="let cr of municipios" value="{{cr.id}}">{{cr.municipio}}</ion-select-option>
     </ion-select>
   </ion-item>
-  <ion-item>
+  <ion-item *ngIf="!new">
+    <ion-label>Municipio</ion-label>
+    <ion-select interface="popover" placeholder="{{madre.municipio.municipio}}" [(ngModel)]="madre.id_municipio">
+      <ion-select-option *ngFor="let cr of municipios" value="{{cr.id}}">{{cr.municipio}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item *ngIf="new">
     <ion-label>Parroquia</ion-label>
-    <ion-select interface="popover" placeholder="" [(ngModel)]="madre.id_parroquia">
+    <ion-select interface="popover" placeholder="seleccione" [(ngModel)]="madre.id_parroquia">
+      <ion-select-option *ngFor="let cr of parroquias" value="{{cr.id}}">{{cr.parroquia}}</ion-select-option>
+    </ion-select>
+   </ion-item>
+   <ion-item *ngIf="!new">
+    <ion-label>Parroquia</ion-label>
+    <ion-select interface="popover" placeholder="{{madre.parroquia.parroquia}}" [(ngModel)]="madre.id_parroquia">
       <ion-select-option *ngFor="let cr of parroquias" value="{{cr.id}}">{{cr.parroquia}}</ion-select-option>
     </ion-select>
    </ion-item>
@@ -42,9 +54,15 @@
       <ion-select-option *ngFor="let cr of idiomas" value="{{cr.id}}">{{cr.idioma}}</ion-select-option>
     </ion-select>
   </ion-item>
-  <ion-item>
+  <ion-item *ngIf="new">
     <ion-label>Nivel Academico</ion-label>
-    <ion-select interface="popover" placeholder="" [(ngModel)]="madre.id_nivel_academico">
+    <ion-select interface="popover" placeholder="seleccione" [(ngModel)]="madre.id_nivel_academico">
+      <ion-select-option *ngFor="let cr of nivelesAcademicos" value="{{cr.id}}">{{cr.nivel_academico}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item *ngIf="!new">
+    <ion-label>Nivel Academico</ion-label>
+    <ion-select interface="popover" placeholder="{{madre.nivel_academico.nivel_academico}}" [(ngModel)]="madre.id_nivel_academico">
       <ion-select-option *ngFor="let cr of nivelesAcademicos" value="{{cr.id}}">{{cr.nivel_academico}}</ion-select-option>
     </ion-select>
   </ion-item>

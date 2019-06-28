@@ -12,41 +12,44 @@
     <ion-label position="floating">Nombre de Niño</ion-label>
     <ion-input type="text" [(ngModel)]="ninio.ninio"></ion-input>
   </ion-item>
-    <ion-item>
-      <ion-label>Peso al Nacer</ion-label>
-      <ion-select interface="popover" placeholder="Seleccionar" [(ngModel)]="ninio.peso_nacimiento">
-        <ion-select-option value="Si" >Si</ion-select-option>
-         <ion-select-option value="No"  >No recuerda</ion-select-option>
-      </ion-select>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Peso de nacimiento en libras</ion-label>
-      <ion-input type="numer" ngShow="ninio.peso_nacimiento"></ion-input>
-    </ion-item>
-    <ion-item>
-      <p>Libras:</p>
-      </ion-item>
   <ion-item>
-    <ion-label position="floating">Fecha Nacimiento</ion-label>
+    <ion-label position="floating">Peso de nacimiento en libras</ion-label>
+    <ion-input type="numer" [(ngModel)]="ninio.peso_nacimiento_libras" (ngModelChange)="calcularPesoNacimiento($event)"></ion-input>
+  </ion-item>
+  <ion-item>
+    <p>Kilogramos: {{ninio.peso_nacimiento}}</p>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating" *ngIf="new">Fecha Nacimiento</ion-label>
+    <ion-label position="floating" *ngIf="!new">Fecha Nacimiento {{ninio.fecha_nacimiento}}</ion-label>
     <ion-datetime display-format="DD/MM/YYYY" [(ngModel)]="ninio.fechaNacimiento" value="12/10/1993"></ion-datetime>
   </ion-item>
-  <ion-item>
-      <ion-label>Sexo</ion-label>
-      <ion-select interface="popover" placeholder="" [(ngModel)]="ninio.id_genero">
-        <ion-select-option *ngFor="let cr of generos" value="{{cr.id}}" >{{cr.genero}}</ion-select-option>
-      </ion-select>
+
+  <ion-item *ngIf="new">
+    <ion-label>Sexo</ion-label>
+    <ion-select interface="popover" placeholder="seleccione" [(ngModel)]="ninio.id_genero">
+      <ion-select-option *ngFor="let cr of generos" value="{{cr.id}}">{{cr.genero}}</ion-select-option>
+    </ion-select>
   </ion-item>
-    <ion-item>
-        <ion-label>Madre</ion-label>
-      <ion-select interface="popover" placeholder="" [(ngModel)]="ninio.id_madre">
-        <ion-select-option *ngFor="let cr of madres" value="{{cr.id}}" >{{cr.madre}}</ion-select-option>
-      </ion-select>
-      <ion-toolbar>
-          <ion-searchbar color="tertiary"
-          placeholder ="buscar"
-          animated>
-          </ion-searchbar>
-      </ion-toolbar>
+  <ion-item *ngIf="!new">
+    <ion-label>Sexo</ion-label>
+    <ion-select interface="popover" placeholder="{{ninio.genero.genero}}" [(ngModel)]="ninio.id_genero">
+      <ion-select-option *ngFor="let cr of generos" value="{{cr.id}}">{{cr.genero}}</ion-select-option>
+    </ion-select>
   </ion-item>
+
+  <ion-item *ngIf="new">
+    <ion-label>Madre</ion-label>
+    <ion-select interface="popover" placeholder="seleccione" [(ngModel)]="ninio.id_madre">
+      <ion-select-option *ngFor="let cr of madres" value="{{cr.id}}">{{cr.madre}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item *ngIf="!new">
+    <ion-label>Madre</ion-label>
+    <ion-select interface="popover" placeholder="{{ninio.madre.madre}}" [(ngModel)]="ninio.id_madre">
+      <ion-select-option *ngFor="let cr of madres" value="{{cr.id}}">{{cr.madre}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  
   <ion-button shape="round" color="primary" expand="block" (click)="saveNino()">Guardar</ion-button>
 </ion-content>

@@ -530,6 +530,26 @@ export class RestApiService {
         catchError(this.handleError)
       );
   }
+  getNinio(id): Observable<any> {
+    const url = `${apiUrl}ninio/${id}`;
+    return this.http.get(url).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+  updateNinio(id: string, data): Observable<any> {
+    const url = `${apiUrl}ninio/${id}`;
+    return this.http.put(url, data, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+  deleteNinio(id: string): Observable<{}> {
+    const url = `${apiUrl}ninio/${id}`;
+    return this.http.delete(url, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
   getNinios(): Observable<any> {
     const url = `${apiUrl}ninios`;
     return this.http.get(url).pipe(

@@ -21,7 +21,8 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     //IonicSelectableModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    //IonicSelectableModule
   ],
   declarations: [CuNinioPage]
 })

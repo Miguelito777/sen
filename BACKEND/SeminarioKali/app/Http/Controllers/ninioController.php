@@ -15,7 +15,8 @@ class NinioController extends Controller
 
     public function showOneNinio($id)
     {
-        return response()->json(TtNinio::find($id));
+        $ninio = TtNinio::with('genero','madre')->where('id','=',$id)->get();
+        return response()->json($ninio);
     }
 
     public function create(Request $request)

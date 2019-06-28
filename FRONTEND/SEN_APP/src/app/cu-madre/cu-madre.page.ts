@@ -9,6 +9,7 @@ import { ActivatedRoute, Router  } from '@angular/router';
   styleUrls: ['./cu-madre.page.scss'],
 })
 export class CuMadrePage implements OnInit {
+  new:boolean=true;
   public madre:any={
     madre:null,
     direccion:null,
@@ -29,16 +30,18 @@ export class CuMadrePage implements OnInit {
     private route: ActivatedRoute,
     public router: Router
   ) {     
+
+  }
+
+  ngOnInit() {
     if(+this.route.snapshot.paramMap.get('id') > 0){
+      this.new = false;
       this.getMadre(this.route.snapshot.paramMap.get('id'));
     }else{
       /*this.almacen = {
         nombre:''
       }*/
     }
-  }
-
-  ngOnInit() {
     this.getMunicipios(2);
     this.getParroquias();
     this.getNivelesAcademicos();

@@ -25,6 +25,12 @@ class TtNinio extends Model
     {
         return $this->hasMany('App\TtEvaluacion', 'id_ninio', 'id');
     }
+    public function genero(){
+        return $this->hasOne('App\TcGenero','id','id_genero');
+    }
+    public function madre(){
+        return $this->hasOne('App\TtMadre','id','id_madre');
+    }
         /**
      * The attributes excluded from the model's JSON form.
      *
