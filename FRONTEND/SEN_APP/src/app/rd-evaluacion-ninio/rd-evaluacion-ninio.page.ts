@@ -37,5 +37,21 @@ export class RdEvaluacionNinioPage implements OnInit {
         loading.dismiss();
       });
   }
+  async deleteEvaluacion(id) {
+    const loading = await this.loadingController.create({
+      message: 'Eliminando...',
+    });
+    await loading.present();
+    await this.api.deleteEv(id)
+      .subscribe(res => {
+        loading.dismiss();
+        this.router.navigate(['/Catalogos']);
+        //this.gruposSanguineos = res;
+      }, err => {
+        this.router.navigate(['/Catalogos']);
+        console.log(err);
+        loading.dismiss();
+      });
+  }
 }
 

@@ -16,8 +16,8 @@ class TtEvaluacion extends Model
         'evaluacion',
         'peso',
         'talla',
-        'id_estado_persona'
-        
+        'id_estado_persona',
+        'id_ninio'
     ];
     public function detailsEvaluacion()
     {

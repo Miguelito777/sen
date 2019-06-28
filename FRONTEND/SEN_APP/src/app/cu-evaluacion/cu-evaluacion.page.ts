@@ -25,8 +25,24 @@ export class CuEvaluacionPage implements OnInit {
     public router: Router
   ) {
     this.evaluacion.id_ninio = +this.route.snapshot.paramMap.get('id');
+    if(+this.route.snapshot.paramMap.get('ev') > 0){
+      this.getEvaluacion();
+    }
   }
-
+  async getEvaluacion() {
+    const loading = await this.loadingController.create({
+      message: 'Estados Persona',
+    });
+    await loading.present();
+    await this.api.getEvaluacion(+this.route.snapshot.paramMap.get('ev'))
+      .subscribe(res => {
+        this.evaluacion = res;        
+        loading.dismiss();
+      }, err => {
+        console.log(err);
+        loading.dismiss();
+      });
+  }
   ngOnInit() {
     this.getEstadosPersona();
   }
@@ -54,24 +70,39 @@ export class CuEvaluacionPage implements OnInit {
     this.evaluacion.detalles_evaluacion.push(estado_persona);
   }
   async saveEvaluacion(){
-    if(+this.evaluacion.peso < 50 && +this.evaluacion.talla < 100){
-      this.evaluacion.evaluacion = 'Desnutricion Aguda';
-    }else if((+this.evaluacion.peso > 50 && +this.evaluacion.peso < 150 ) && (+this.evaluacion.talla > 100 && +this.evaluacion.talla < 150)){
-      this.evaluacion.evaluacion = 'Normal';
-    }else{
-      this.evaluacion.evaluacion = 'Obeso';
-    }
-    const loading = await this.loadingController.create({
-      message: 'Guardando Evaluacion',
-    });
-    await loading.present();
-    await this.api.insEvaluacion(this.evaluacion)
-    .subscribe(res => {
-      loading.dismiss();  
-      //let id = res['id'];
-        this.router.navigate(['/Catalogos']);
-      }, (err) => {
-        console.log(err);
+    if(+this.route.snapshot.paramMap.get('ev') > 0){
+      const loading = await this.loadingController.create({
+        message: 'Actualizando Evaluacion',
       });
+      await loading.present();
+      await this.api.updateEv(this.route.snapshot.paramMap.get('ev'),this.evaluacion)
+      .subscribe(res => {
+        loading.dismiss();  
+        //let id = res['id'];
+          this.router.navigate(['/Catalogos']);
+        }, (err) => {
+          console.log(err);
+        }); 
+    }else{
+      if(+this.evaluacion.peso < 50 && +this.evaluacion.talla < 100){
+        this.evaluacion.evaluacion = 'Desnutricion Aguda';
+      }else if((+this.evaluacion.peso > 50 && +this.evaluacion.peso < 150 ) && (+this.evaluacion.talla > 100 && +this.evaluacion.talla < 150)){
+        this.evaluacion.evaluacion = 'Normal';
+      }else{
+        this.evaluacion.evaluacion = 'Obeso';
+      }
+      const loading = await this.loadingController.create({
+        message: 'Guardando Evaluacion',
+      });
+      await loading.present();
+      await this.api.insEvaluacion(this.evaluacion)
+      .subscribe(res => {
+        loading.dismiss();  
+        //let id = res['id'];
+          this.router.navigate(['/Catalogos']);
+        }, (err) => {
+          console.log(err);
+        }); 
+    }
   }
 }

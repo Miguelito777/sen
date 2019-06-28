@@ -28,7 +28,11 @@ class MadreController extends Controller
         $madre = TtMadre::with('municipio','parroquia','nivel_academico')->where('id','=',$id)->get();
         return response()->json($madre);
     }
-
+    public function getEvaluacion($id)
+    {
+        return response()->json(TtEvaluacion::find($id));
+    }
+    
     public function create(Request $request)
     {
         $Madre = TtMadre::create($request->all());
@@ -95,4 +99,16 @@ class MadreController extends Controller
         return response()->json(TtNinio::find($id)->Evaluaciones);
     }
     
+    public function updateEv($id, Request $request)
+    {
+        $item = TtEvaluacion::findOrFail($id);
+        $item->update($request->all());
+
+        return response()->json($item, 200);
+    }
+    public function deleteEv($id)
+    {
+        TtEvaluacion::findOrFail($id)->delete();
+        return response('Deleted Successfully', 200);
+    }
 }

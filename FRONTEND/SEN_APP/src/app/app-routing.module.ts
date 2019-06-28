@@ -47,7 +47,7 @@ const routes: Routes = [
   { path: 'rd-ninio', loadChildren: './rd-ninio/rd-ninio.module#RdNinioPageModule' },
   { path: 'cu-ninio/:id', loadChildren: './cu-ninio/cu-ninio.module#CuNinioPageModule' },
   { path: 'rd-evaluacion', loadChildren: './rd-evaluacion/rd-evaluacion.module#RdEvaluacionPageModule' },
-  { path: 'cu-evaluacion/:id', loadChildren: './cu-evaluacion/cu-evaluacion.module#CuEvaluacionPageModule' },
+  { path: 'cu-evaluacion/:id/:ev', loadChildren: './cu-evaluacion/cu-evaluacion.module#CuEvaluacionPageModule' },
   { path: 'show-evaluacion-ninio/:id', loadChildren: './rd-evaluacion-ninio/rd-evaluacion-ninio.module#RdEvaluacionNinioPageModule' },
   
 ];

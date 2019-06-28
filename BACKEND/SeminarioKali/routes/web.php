@@ -27,6 +27,12 @@
 		$router->put('ninio/{id}', ['uses' => 'NinioController@update']);
 		$router->delete('ninio/{id}', ['uses' => 'NinioController@delete']);
 
+		$router->get('estado-persona',  ['uses' => 'madreController@getAllEstadoPersona']);
+	    $router->post('nueva-evaluacion', ['uses' => 'madreController@createEvaluacion']);
+	    $router->get('evaluacion/{id}',  ['uses' => 'madreController@getEvaluacion']);
+		$router->put('evaluacion/{id}', ['uses' => 'madreController@updateEv']);
+		$router->delete('evaluacion/{id}', ['uses' => 'madreController@deleteEv']);
+
 
 		$router->get('municipios/{id}',  ['uses' => 'madreController@getMunicipios']);
 	    $router->get('parroquias',  ['uses' => 'madreController@getAllParroquias']);
@@ -35,8 +41,6 @@
 	    $router->get('TiposPeso',  ['uses' => 'madreController@getAllTipoPeso']);
 	    $router->get('generos',  ['uses' => 'madreController@getAllGenero']);
 	    $router->get('ninios',  ['uses' => 'madreController@getAllNinios']);
-	    $router->get('estado-persona',  ['uses' => 'madreController@getAllEstadoPersona']);
-	    $router->post('nueva-evaluacion', ['uses' => 'madreController@createEvaluacion']);
 	    $router->get('evaluaciones-ninio/{id}',  ['uses' => 'madreController@getEvaluacionesNinio']);
 
 	    /*$router->get('grupo-sanguineo',  ['uses' => 'GrupoSanguineoController@showAllGrupoSanguineo']);

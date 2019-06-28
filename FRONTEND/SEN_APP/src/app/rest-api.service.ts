@@ -575,6 +575,26 @@ export class RestApiService {
       map(this.extractData),
       catchError(this.handleError));
   }
+  getEvaluacion(id): Observable<any> {
+    const url = `${apiUrl}evaluacion/${id}`;
+    return this.http.get(url).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+  updateEv(id: string, data): Observable<any> {
+    const url = `${apiUrl}evaluacion/${id}`;
+    return this.http.put(url, data, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+  deleteEv(id: string): Observable<{}> {
+    const url = `${apiUrl}evaluacion/${id}`;
+    return this.http.delete(url, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
