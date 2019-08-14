@@ -96,7 +96,7 @@ class MadreController extends Controller
     }
     public function getEvaluacionesNinio($id)
     {
-        return response()->json(TtNinio::find($id)->Evaluaciones->groupby('month'));
+        return response()->json(TtNinio::find($id)->Evaluaciones);
     }
     
     public function updateEv($id, Request $request)
