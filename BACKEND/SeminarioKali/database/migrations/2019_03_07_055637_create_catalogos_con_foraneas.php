@@ -20,7 +20,6 @@ class CreateCatalogosConForaneas extends Migration
             $table->foreign('id_departamento')->references('id')->on('tc_departamento');
             $table->timestamps();
         });
-
         Schema::create('tc_usuario', function (Blueprint $table){
             $table->increments('id');
             $table->string('usuario','88')->nullable();
@@ -30,9 +29,7 @@ class CreateCatalogosConForaneas extends Migration
             $table->unsignedInteger('id_estado_usuario');
             $table->foreign('id_estado_usuario')->references('id')->on('tc_estado_usuario');
         });
-
     }
-
     /**
      * Reverse the migrations.
      *
@@ -44,4 +41,3 @@ class CreateCatalogosConForaneas extends Migration
         Schema::dropIfExists('tc_usuario');
     }
 }
-
