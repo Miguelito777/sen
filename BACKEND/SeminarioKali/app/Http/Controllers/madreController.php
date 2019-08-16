@@ -138,4 +138,13 @@ class MadreController extends Controller
         TtEvaluacionMadre::findOrFail($id)->delete();
         return response('Deleted Successfully', 200);
     }
+
+
+
+
+    //REPORTES
+    public function getReporteUno()
+    {
+        return response()->json(TtNinio::all());
+    }
 }

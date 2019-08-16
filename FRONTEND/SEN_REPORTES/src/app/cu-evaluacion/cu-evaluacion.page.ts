@@ -11,6 +11,7 @@ import { ActivatedRoute, Router  } from '@angular/router';
 export class CuEvaluacionPage implements OnInit {
   public EstadosPersona;
   public estadoPersonaSelect:any=[];
+  public ninios:any=[];
   public evaluacion:any={
     peso:null,
     talla:null,
@@ -18,26 +19,29 @@ export class CuEvaluacionPage implements OnInit {
     estado_persona:null,
     detalles_evaluacion:[]
   };
+  public idReporte;
   constructor(
     public api: RestApiService,
     public loadingController: LoadingController,
     private route: ActivatedRoute,
     public router: Router
   ) {
-    this.evaluacion.id_ninio = +this.route.snapshot.paramMap.get('id');
+    this.idReporte = +this.route.snapshot.paramMap.get('id');
+    console.log("El reporte seleccionado es: "+this.idReporte);
+    
   }
 
   ngOnInit() {
-    this.getEstadosPersona();
+    this.getReporteUno();
   }
-  async getEstadosPersona() {
+  async getReporteUno() {
     const loading = await this.loadingController.create({
-      message: 'Estados Persona',
+      message: 'Reporte',
     });
     await loading.present();
-    await this.api.getEstadosPersona()
+    await this.api.getReporteUno()
       .subscribe(res => {
-        this.EstadosPersona = res;
+        this.ninios = res;
         console.log(this.EstadosPersona);
         
         loading.dismiss();

@@ -529,6 +529,13 @@ export class RestApiService {
       map(this.extractData),
       catchError(this.handleError));
   }
+
+  getReporteUno(): Observable<any> {
+    const url = `${apiUrl}reporte-uno`;
+    return this.http.get(url).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.

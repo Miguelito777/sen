@@ -4,7 +4,7 @@
       <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title>
-      Crear o Actualizar
+      Reporte 
     </ion-title>
     <!--<ion-buttons slot="end">
         <ion-button routerLink="/cu-evaluacion/{{idNinio}}">
@@ -15,38 +15,11 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-item>
-    <ion-label position="floating">Peso</ion-label>
-    <ion-input type="text" [(ngModel)]="evaluacion.peso"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="floating">Talla</ion-label>
-    <ion-input type="text" [(ngModel)]="evaluacion.talla"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>Estado Persona</ion-label>
-    <ion-select interface="popover" placeholder="" [(ngModel)]="evaluacion.estado_persona">
-      <ion-select-option *ngFor="let cr of EstadosPersona" [value]="cr" >{{cr.estado_persona}}</ion-select-option>
-    </ion-select>
-    <ion-buttons slot="end">
-      <ion-button (click)="addEstado()">
-        <ion-icon name="add-circle"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-item>
+  <p>Total: <b>{{ninios.length}}</b></p>
   <ion-list>
-    <ion-item *ngFor="let cr of evaluacion.detalles_evaluacion">
-      <ion-icon name="apps" slot="start"></ion-icon>
-      {{cr.detalle_evaluacion}}
-      <div class="item-note" slot="end">
-        <ion-button shape="round" color="danger" (click)="deleteMadre(cr.id)">
-          <ion-icon name="trash"></ion-icon>
-        </ion-button>
-        <!--<ion-button shape="round" color="warning" routerLink="/cu-madre/{{cr.id}}">
-          <ion-icon name="create"></ion-icon>
-        </ion-button>-->
-      </div>
-    </ion-item>
-  </ion-list>
-  <ion-button shape="round" color="primary" expand="block" (click)="saveEvaluacion()">Guardar</ion-button>
+      <ion-item *ngFor="let cr of ninios">
+        <ion-icon name="apps" slot="start"></ion-icon>
+        {{cr.ninio}}
+      </ion-item>
+    </ion-list>
 </ion-content>

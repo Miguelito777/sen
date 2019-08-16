@@ -50,6 +50,9 @@
 	    $router->get('ninios',  ['uses' => 'madreController@getAllNinios']);
 		$router->get('evaluaciones-ninio/{id}',  ['uses' => 'madreController@getEvaluacionesNinio']);
 		$router->get('evaluaciones-madre/{id}',  ['uses' => 'madreController@getEvaluacionesMadre']);
+
+		//REPORTES
+		$router->get('reporte-uno',  ['uses' => 'madreController@getReporteUno']);
 		
 
 	    /*$router->get('grupo-sanguineo',  ['uses' => 'GrupoSanguineoController@showAllGrupoSanguineo']);
