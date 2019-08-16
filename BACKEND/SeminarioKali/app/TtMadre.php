@@ -30,6 +30,10 @@ class TtMadre extends Model
     public function nivel_academico(){
         return $this->hasOne('App\TcNivelAcademico','id','id_nivel_academico');
     }
+    public function Evaluaciones()
+    {
+        return $this->hasMany('App\TtEvaluacionMadre', 'id_madre', 'id');
+    }
         /**
      * The attributes excluded from the model's JSON form.
      *

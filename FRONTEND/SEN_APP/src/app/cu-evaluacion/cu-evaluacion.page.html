@@ -9,14 +9,18 @@
 
 <ion-content padding>
   <ion-item>
-    <ion-label position="floating">Peso en Libras</ion-label>
+    <ion-label position="floating">Peso para la talla</ion-label>
     <ion-input type="text" [(ngModel)]="evaluacion.peso"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label position="floating">Talla</ion-label>
-    <ion-input type="text" [(ngModel)]="evaluacion.talla"></ion-input>
+    <ion-label position="floating">Peso para la edad</ion-label>
+    <ion-input type="text" [(ngModel)]="evaluacion.evaluacion"></ion-input>
   </ion-item>
   <ion-item>
+    <ion-label position="floating">Talla para la edad</ion-label>
+    <ion-input type="text" [(ngModel)]="evaluacion.talla"></ion-input>
+  </ion-item>
+  <!--<ion-item>
     <ion-label>Observaciones</ion-label>
     <ion-select interface="popover" placeholder="" [(ngModel)]="evaluacion.estado_persona">
       <ion-select-option *ngFor="let cr of EstadosPersona" [value]="cr" >{{cr.estado_persona}}</ion-select-option>
@@ -42,11 +46,8 @@
         <ion-button shape="round" color="danger" (click)="deleteMadre(cr.id)">
           <ion-icon name="trash"></ion-icon>
         </ion-button>
-        <!--<ion-button shape="round" color="warning" routerLink="/cu-madre/{{cr.id}}">
-          <ion-icon name="create"></ion-icon>
-        </ion-button>-->
       </div>
     </ion-item>
-  </ion-list>
+  </ion-list>-->
   <ion-button shape="round" color="primary" expand="block" (click)="saveEvaluacion()">Guardar</ion-button>
 </ion-content>

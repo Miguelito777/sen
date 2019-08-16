@@ -49,6 +49,11 @@ const routes: Routes = [
   { path: 'rd-evaluacion', loadChildren: './rd-evaluacion/rd-evaluacion.module#RdEvaluacionPageModule' },
   { path: 'cu-evaluacion/:id/:ev', loadChildren: './cu-evaluacion/cu-evaluacion.module#CuEvaluacionPageModule' },
   { path: 'show-evaluacion-ninio/:id', loadChildren: './rd-evaluacion-ninio/rd-evaluacion-ninio.module#RdEvaluacionNinioPageModule' },
+  { path: 'rd-evaluacion-madre', loadChildren: './rd-evaluacion-madre/rd-evaluacion-madre.module#RdEvaluacionMadrePageModule' },
+  { path: 'rd-evaluacion-one-madre/:id', loadChildren: './rd-evaluacion-one-madre/rd-evaluacion-one-madre.module#RdEvaluacionOneMadrePageModule' },
+  { path: 'cu-evaluacion-madre/:id/:ev', loadChildren: './cu-evaluacion-madre/cu-evaluacion-madre.module#CuEvaluacionMadrePageModule' },
+
+
   
 ];
 

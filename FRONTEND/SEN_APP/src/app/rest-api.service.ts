@@ -569,14 +569,33 @@ export class RestApiService {
         catchError(this.handleError)
       );
   }
+  insEvaluacionMadre(data): Observable<any> {
+    const url = `${apiUrl}nueva-evaluacion-madre`;
+    return this.http.post(url, data, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
   getEvaluacionesNinio(idNinio): Observable<any> {
     const url = `${apiUrl}evaluaciones-ninio/${idNinio}`;
     return this.http.get(url).pipe(
       map(this.extractData),
       catchError(this.handleError));
   }
+  getEvaluacionesMadre(idMadre): Observable<any> {
+    const url = `${apiUrl}evaluaciones-madre/${idMadre}`;
+    return this.http.get(url).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
   getEvaluacion(id): Observable<any> {
     const url = `${apiUrl}evaluacion/${id}`;
+    return this.http.get(url).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+  getEvaluacionMadre(id): Observable<any> {
+    const url = `${apiUrl}evaluacion-madre/${id}`;
     return this.http.get(url).pipe(
       map(this.extractData),
       catchError(this.handleError));
@@ -588,8 +607,15 @@ export class RestApiService {
         catchError(this.handleError)
       );
   }
-  deleteEv(id: string): Observable<{}> {
-    const url = `${apiUrl}evaluacion/${id}`;
+  updateEvMadre(id: string, data): Observable<any> {
+    const url = `${apiUrl}evaluacion-madre/${id}`;
+    return this.http.put(url, data, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+  deleteEvMadre(id: string): Observable<{}> {
+    const url = `${apiUrl}evaluacionMadre/${id}`;
     return this.http.delete(url, httpOptions)
       .pipe(
         catchError(this.handleError)

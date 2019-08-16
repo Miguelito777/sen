@@ -12,6 +12,7 @@ use App\TtNinio;
 use App\TcEstadoPersona;
 use App\TtEvaluacion;
 use App\TcMunicipio;
+use App\TtEvaluacionMadre;
 
 use Illuminate\Http\Request;
 
@@ -32,7 +33,10 @@ class MadreController extends Controller
     {
         return response()->json(TtEvaluacion::find($id));
     }
-    
+    public function getEvaluacionMadre($id)
+    {
+        return response()->json(TtEvaluacionMadre::find($id));
+    }
     public function create(Request $request)
     {
         $Madre = TtMadre::create($request->all());
@@ -94,9 +98,20 @@ class MadreController extends Controller
         $evaluacion->detailsEvaluacion()->createMany($request->detalles_evaluacion);
         return response()->json($evaluacion, 201);
     }
+    public function createEvaluacionMadre(Request $request)
+    {
+        $evaluacion = TtEvaluacionMadre::create($request->all());
+        //$evaluacion->detailsEvaluacion()->createMany($request->detalles_evaluacion);
+        return response()->json($evaluacion, 201);
+    }
     public function getEvaluacionesNinio($id)
     {
         return response()->json(TtNinio::find($id)->Evaluaciones);
+    }
+
+    public function getEvaluacionesMadre($id)
+    {
+        return response()->json(TtMadre::find($id)->Evaluaciones);
     }
     
     public function updateEv($id, Request $request)
@@ -106,9 +121,21 @@ class MadreController extends Controller
 
         return response()->json($item, 200);
     }
+    public function updateEvMadre($id, Request $request)
+    {
+        $item = TtEvaluacionMadre::findOrFail($id);
+        $item->update($request->all());
+
+        return response()->json($item, 200);
+    }
     public function deleteEv($id)
     {
         TtEvaluacion::findOrFail($id)->delete();
+        return response('Deleted Successfully', 200);
+    }
+    public function deleteEvMadre($id)
+    {
+        TtEvaluacionMadre::findOrFail($id)->delete();
         return response('Deleted Successfully', 200);
     }
 }
